@@ -14,9 +14,8 @@ export default {
     };
   },
   created() {
-    var vm = this;
     fetchAskList()
-      .then((respnse) => (vm.askList = respnse.data))
+      .then((respnse) => (this.askList = respnse.data))
       .catch((error) => console.log(error));
   },
 };

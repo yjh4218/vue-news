@@ -14,9 +14,8 @@ export default {
     };
   },
   created() {
-    var vm = this;
     fetchJobsList()
-      .then((response) => (vm.jobList = response.data))
+      .then((response) => (this.jobList = response.data))
       .catch((error) => console.log(error));
   },
 };

@@ -14,9 +14,8 @@ export default {
     };
   },
   created() {
-    var vm = this;
     fetchNewsList()
-      .then((response) => (vm.newsList = response.data))
+      .then((response) => (this.newsList = response.data))
       .catch((error) => console.log(error));
   },
 };
