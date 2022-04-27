@@ -1,22 +1,15 @@
 <template>
   <div>
-    <div v-for="news in newsList">{{ news.title }}</div>
+    <div v-for="news in this.$store.state.news">{{ news.title }}</div>
   </div>
 </template>
 
 <script>
-import { fetchNewsList } from "../api/index.js";
-
 export default {
-  data() {
-    return {
-      newsList: [],
-    };
-  },
   created() {
-    fetchNewsList()
-      .then((response) => (this.newsList = response.data))
-      .catch((error) => console.log(error));
+    // actions -> mutations -> state
+    // 비동기 처리는 actions에서 해야 한다.
+    this.$store.dispatch("FETCH_NEWS");
   },
 };
 </script>
