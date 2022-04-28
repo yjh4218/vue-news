@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div v-for="job in jobList">{{ job.title }}</div>
+    <!-- <div v-for="job in jobList">{{ job.title }}</div> -->
+    <div v-for="job in this.$store.state.jobs">{{ job.title }}</div>
   </div>
 </template>
 
@@ -14,9 +15,10 @@ export default {
     };
   },
   created() {
-    fetchJobsList()
-      .then((response) => (this.jobList = response.data))
-      .catch((error) => console.log(error));
+    // fetchJobsList()
+    //   .then((response) => (this.jobList = response.data))
+    //   .catch((error) => console.log(error));
+    this.$store.dispatch("FETCH_JOBS");
   },
 };
 </script>
