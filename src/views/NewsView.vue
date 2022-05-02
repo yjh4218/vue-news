@@ -3,7 +3,14 @@
     <!-- <div v-for="news in this.$store.state.news">{{ news.title }}</div> -->
     <p v-for="news in fetchNews">
       <a v-bind:href="news.url"> {{ news.title }}</a>
-      <small>{{ news.time_ago }} by {{ news.user }}</small>
+      <small>
+        {{ news.time_ago }} by
+        <!-- 동적 라우팅 -->
+        <!-- <router-link v-bind:to="'/user/' + news.user">{{ news.user }}</router-link> -->
+        <router-link v-bind:to="`/user/${news.user}`">{{
+          news.user
+        }}</router-link>
+      </small>
     </p>
   </div>
 </template>

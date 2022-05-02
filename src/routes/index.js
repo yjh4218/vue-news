@@ -34,7 +34,8 @@ export const router = new VueRouter({
       component: ItemView,
     },
     {
-      path: "/user",
+      //동적 라우팅
+      path: "/user/:id",
       component: UserView,
     },
   ],
