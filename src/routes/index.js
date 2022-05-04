@@ -30,7 +30,8 @@ export const router = new VueRouter({
       component: Jobsview,
     },
     {
-      path: "/item",
+      //동적 라우팅
+      path: "/item/:id",
       component: ItemView,
     },
     {

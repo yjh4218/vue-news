@@ -2,7 +2,14 @@
   <div>
     <!-- <div v-for="ask in askList">{{ ask.title }}</div> -->
     <!-- <div v-for="ask in this.$store.state.asks">{{ ask.title }}</div> -->
-    <div v-for="ask in fetchAsk">{{ ask.title }}</div>
+    <div v-for="ask in fetchAsk">
+      <router-link v-bind:to="`/item/${ask.id}`"> {{ ask.title }}</router-link>
+      <small>
+        {{ ask.time_ago }}
+        <!-- 동적 라우팅 -->
+        <!-- <router-link v-bind:to="'/user/' + news.user">{{ news.user }}</router-link> -->
+      </small>
+    </div>
   </div>
 </template>
 
