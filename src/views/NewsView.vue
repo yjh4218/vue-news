@@ -1,14 +1,15 @@
 <template>
   <div>
+    <list-item></list-item>
     <!-- ● 리팩토링 적용 후 코드 -->
-    <ul class="news-list">
-      <li v-for="news in this.$store.state.news" class="post">
-        <!-- 포인트 영역 -->
-        <div class="points">
+    <!-- <ul class="news-list">
+      <li v-for="news in this.$store.state.news" class="post"> -->
+    <!-- 포인트 영역 -->
+    <!-- <div class="points">
           {{ news.points }}
-        </div>
-        <!-- 기타 정보 영역 -->
-        <div>
+        </div> -->
+    <!-- 기타 정보 영역 -->
+    <!-- <div>
           <p class="news-title">
             <a v-bind:href="news.url"> {{ news.title }}</a>
           </p>
@@ -18,13 +19,10 @@
               {{ news.user }}
             </router-link>
           </small>
-        </div>
-        <!-- 
-        <small>
-          
-        </small> -->
+        </div> -->
+    <!--         
       </li>
-    </ul>
+    </ul> -->
 
     <!-- ● 리팩토링 적용 전 코드 -->
     <!-- <div v-for="news in this.$store.state.news">{{ news.title }}</div> -->
@@ -43,21 +41,26 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
+import ListItem from "../components/ListItem.vue";
+
 export default {
-  computed: {
-    ...mapGetters(["fetchNews"]),
+  components: {
+    ListItem,
   },
-  created() {
-    // actions -> mutations -> state
-    // 비동기 처리는 actions에서 해야 한다.
-    this.$store.dispatch("FETCH_NEWS");
-  },
+  // computed: {
+  //   ...mapGetters(["fetchNews"]),
+  // },
+  // created() {
+  //   // actions -> mutations -> state
+  //   // 비동기 처리는 actions에서 해야 한다.
+  //   this.$store.dispatch("FETCH_NEWS");
+  // },
 };
 </script>
 
 <style scoped>
-.news-list {
+/* .news-list {
   margin: 0;
   padding: 0;
 }
@@ -80,5 +83,5 @@ export default {
 }
 .link-text {
   color: #828282;
-}
+} */
 </style>
