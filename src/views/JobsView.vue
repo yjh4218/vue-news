@@ -1,31 +1,28 @@
 <template>
   <div>
-    <ul class="jobs-list">
-      <li v-for="job in fetchJobs" class="post">
-        <!-- 포인트 영역 -->
-        <div class="points">
+    <list-item></list-item>
+    <!-- <ul class="jobs-list"> -->
+    <!-- <li v-for="job in fetchJobs" class="post"> -->
+    <!-- 포인트 영역 -->
+    <!-- <div class="points">
           {{ job.points || 0 }}
-        </div>
-        <!-- 기타 정보 영역 -->
-        <div>
+        </div> -->
+    <!-- 기타 정보 영역 -->
+    <!-- <div>
           <p class="job-title">
             <a v-bind:href="job.url"> {{ job.title }}</a>
           </p>
           <small class="link-text">
-            {{ job.time_ago }} by
-            <!-- <router-link v-bind:to="`/user/${job.user}`" class="link-text">
+            {{ job.time_ago }} by -->
+    <!-- <router-link v-bind:to="`/user/${job.user}`" class="link-text">
              -->
-            <!-- {{ job.domain }} -->
-            <!-- </router-link> -->
-            <a :href="job.url">{{ job.domain }}</a>
+    <!-- {{ job.domain }} -->
+    <!-- </router-link> -->
+    <!-- <a :href="job.url">{{ job.domain }}</a>
           </small>
-        </div>
-        <!-- 
-        <small>
-          
-        </small> -->
-      </li>
-    </ul>
+        </div> -->
+    <!-- </li>
+    </ul> -->
     <!-- <div v-for="job in jobList">{{ job.title }}</div> -->
     <!-- <div v-for="job in this.$store.state.jobs">{{ job.title }}</div> -->
     <!-- <p v-for="job in fetchJobs">
@@ -36,29 +33,33 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
 // import { fetchJobsList } from "../api/index.js";
+import ListItem from "../components/ListItem.vue";
 
 export default {
-  computed: {
-    ...mapGetters(["fetchJobs"]),
+  components: {
+    ListItem,
   },
+  // computed: {
+  //   ...mapGetters(["fetchJobs"]),
+  // },
   // data() {
   //   return {
   //     jobList: [],
   //   };
   // },
-  created() {
-    // fetchJobsList()
-    //   .then((response) => (this.jobList = response.data))
-    //   .catch((error) => console.log(error));
-    this.$store.dispatch("FETCH_JOBS");
-  },
+  // created() {
+  //   // fetchJobsList()
+  //   //   .then((response) => (this.jobList = response.data))
+  //   //   .catch((error) => console.log(error));
+  //   this.$store.dispatch("FETCH_JOBS");
+  // },
 };
 </script>
 
 <style scoped>
-.news-list {
+/* .news-list {
   margin: 0;
   padding: 0;
 }
@@ -81,5 +82,5 @@ export default {
 }
 .link-text {
   color: #828282;
-}
+} */
 </style>
