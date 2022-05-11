@@ -1,7 +1,17 @@
 <template>
   <div>
-    <section>
-      <!-- 질문 상세정보 -->
+    <!-- 사용자 정보 -->
+    <user-profile :info="fetchdItem">
+      <!-- <div slot="username">{{ fetchdItem.user }}</div> -->
+      <router-link slot="username" :to="`/user/${fetchdItem.user}`">
+        {{ fetchdItem.user }}
+      </router-link>
+      <template slot="time">
+        {{ "Posted " + fetchdItem.time_ago }}
+      </template>
+    </user-profile>
+
+    <!-- <section>
       <div class="user-container">
         <div>
           <i class="fa-solid fa-user"></i>
@@ -13,8 +23,13 @@
           <div class="time">{{ fetchdItem.time_ago }}</div>
         </div>
       </div>
+    </section> -->
+
+    <!-- 질문 정보 -->
+    <section>
+      <h2>{{ fetchdItem.title }}</h2>
     </section>
-    <h2>{{ fetchdItem.title }}</h2>
+
     <section class="content-container">
       <!-- 질문 댓글 -->
       <div v-html="fetchdItem.content"></div>
@@ -27,6 +42,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import UserProfile from "../components/UserProfile.vue";
 
 export default {
   computed: {
@@ -34,6 +50,9 @@ export default {
     // itemInfo() {
     //   return this.$store.state.item;
     // },
+  },
+  components: {
+    UserProfile,
   },
   created() {
     // axios.get(`https://api.hnpwa.com/v0/user/${this.$route.params.id}.json`);
