@@ -43,6 +43,7 @@
 <script>
 // import { mapGetters } from "vuex";
 import ListItem from "../components/ListItem.vue";
+import bus from "../utils/bus.js";
 
 export default {
   components: {
@@ -51,11 +52,13 @@ export default {
   // computed: {
   //   ...mapGetters(["fetchNews"]),
   // },
-  // created() {
-  //   // actions -> mutations -> state
-  //   // 비동기 처리는 actions에서 해야 한다.
-  //   this.$store.dispatch("FETCH_NEWS");
-  // },
+  created() {
+    bus.$emit("start:spinner");
+    //   // actions -> mutations -> state
+    //   // 비동기 처리는 actions에서 해야 한다.
+    this.$store.dispatch("FETCH_NEWS");
+    bus.$emit("end:spinner");
+  },
 };
 </script>
 

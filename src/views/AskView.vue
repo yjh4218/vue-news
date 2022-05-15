@@ -59,12 +59,12 @@ export default {
   //     askList: {},
   //   };
   // },
-  // created() {
-  // fetchAskList()
-  //   .then((respnse) => (this.askList = respnse.data))
-  //   .catch((error) => console.log(error));
-  // this.$store.dispatch("FETCH_ASKS");
-  // },
+  created() {
+    // fetchAskList()
+    //   .then((respnse) => (this.askList = respnse.data))
+    //   .catch((error) => console.log(error));
+    this.$store.dispatch("FETCH_ASKS");
+  },
 };
 </script>
 

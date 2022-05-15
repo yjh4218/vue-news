@@ -46,22 +46,22 @@
 
 <script>
 export default {
-  created() {
-    // actions -> mutations -> state
-    // 비동기 처리는 actions에서 해야 한다.
-    // this.$store.dispatch("FETCH_NEWS");
-    // console.log(this.$route.path);
+  // created() {
+  //   // actions -> mutations -> state
+  //   // 비동기 처리는 actions에서 해야 한다.
+  //   // this.$store.dispatch("FETCH_NEWS");
+  //   // console.log(this.$route.path);
 
-    const name = this.$route.name;
+  //   const name = this.$route.name;
 
-    if (name === "news") {
-      this.$store.dispatch("FETCH_NEWS");
-    } else if (name === "ask") {
-      this.$store.dispatch("FETCH_ASKS");
-    } else if (name === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-    }
-  },
+  //   if (name === "news") {
+  //     this.$store.dispatch("FETCH_NEWS");
+  //   } else if (name === "ask") {
+  //     this.$store.dispatch("FETCH_ASKS");
+  //   } else if (name === "jobs") {
+  //     this.$store.dispatch("FETCH_JOBS");
+  //   }
+  // },
 
   computed: {
     listItems() {

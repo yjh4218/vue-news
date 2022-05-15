@@ -49,12 +49,12 @@ export default {
   //     jobList: [],
   //   };
   // },
-  // created() {
-  //   // fetchJobsList()
-  //   //   .then((response) => (this.jobList = response.data))
-  //   //   .catch((error) => console.log(error));
-  //   this.$store.dispatch("FETCH_JOBS");
-  // },
+  created() {
+    //   // fetchJobsList()
+    //   //   .then((response) => (this.jobList = response.data))
+    //   //   .catch((error) => console.log(error));
+    this.$store.dispatch("FETCH_JOBS");
+  },
 };
 </script>
 
