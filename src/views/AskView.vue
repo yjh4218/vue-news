@@ -40,6 +40,7 @@
 // import { fetchAskList } from "../api/index.js";
 // import { mapState, mapGetters } from "vuex";
 import ListItem from "../components/ListItem.vue";
+import bus from "../utils/bus.js";
 
 export default {
   components: {
@@ -63,7 +64,19 @@ export default {
     // fetchAskList()
     //   .then((respnse) => (this.askList = respnse.data))
     //   .catch((error) => console.log(error));
-    this.$store.dispatch("FETCH_ASKS");
+    // this.$store.dispatch("FETCH_ASKS");
+    bus.$emit("start:spinner");
+    setTimeout(() => {
+      this.$store
+        .dispatch("FETCH_ASKS")
+        .then(() => {
+          console.log("fetched");
+          bus.$emit("end:spinner");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 3000);
   },
 };
 </script>

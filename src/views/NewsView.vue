@@ -54,10 +54,28 @@ export default {
   // },
   created() {
     bus.$emit("start:spinner");
-    //   // actions -> mutations -> state
-    //   // 비동기 처리는 actions에서 해야 한다.
-    this.$store.dispatch("FETCH_NEWS");
-    bus.$emit("end:spinner");
+    setTimeout(() => {
+      this.$store
+        .dispatch("FETCH_NEWS")
+        .then(() => {
+          console.log("fetched");
+          bus.$emit("end:spinner");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 3000);
+    // actions -> mutations -> state
+    // 비동기 처리는 actions에서 해야 한다.
+    // this.$store
+    //   .dispatch("FETCH_NEWS")
+    //   .then(() => {
+    //     console.log("fetched");
+    //     bus.$emit("end:spinner");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   },
 };
 </script>
