@@ -6,6 +6,9 @@ import Jobsview from "../views/JobsView.vue";
 import ItemView from "../views/ItemView.vue";
 import UserView from "../views/UserView.vue";
 
+//하이 오더 컴포넌트(HOC)
+import createListView from "../views/CreateListView";
+
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -20,17 +23,21 @@ export const router = new VueRouter({
       path: "/news",
       name: "news",
       //component : url 주소를 갔을 때 표시될 컴포넌트
-      component: Newsview,
+      // component: Newsview,
+      // HOC
+      component: createListView("Newsview"),
     },
     {
       path: "/ask",
       name: "ask",
-      component: Askview,
+      // component: Askview,
+      component: createListView("Askview"),
     },
     {
       path: "/jobs",
       name: "jobs",
-      component: Jobsview,
+      // component: Jobsview,
+      component: createListView("Jobsview"),
     },
     {
       //동적 라우팅

@@ -65,17 +65,21 @@ export default {
 
   computed: {
     listItems() {
-      const name = this.$route.name;
+      //HOC 사용
+      return this.$store.state.list;
 
-      if (name === "news") {
-        return this.$store.state.news;
-      } else if (name === "ask") {
-        return this.$store.state.asks;
-      } else if (name === "jobs") {
-        return this.$store.state.jobs;
-      }
+      // HOC 사용 전
+      // const name = this.$route.name;
 
-      return;
+      // if (name === "news") {
+      //   return this.$store.state.news;
+      // } else if (name === "ask") {
+      //   return this.$store.state.asks;
+      // } else if (name === "jobs") {
+      //   return this.$store.state.jobs;
+      // }
+
+      // return;
     },
   },
 };
